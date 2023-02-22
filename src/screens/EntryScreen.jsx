@@ -11,10 +11,13 @@ import customBackdrop from "../components/customBackdrop";
 const EntryScreen = ({ navigation }) => {
     const snapPoints = useMemo(() => ["15%", "50%", "95%"], []);
 
+    // const defaultSnap = 1;
+    // console.log('yoooooo')
+
     const handleSheetChange = useCallback(
         (index) => {
             if (index === 0) {
-                navigation.navigate('Main')
+                navigation.replace('Main')
                 // index = 1
                 console.log("done");
             }
@@ -33,7 +36,6 @@ const EntryScreen = ({ navigation }) => {
                         footerComponent={CustomFooter}
                         onChange={handleSheetChange}
                         backdropComponent={customBackdrop}
-                        style={{ borderRadius: 90 }}
                     >
                         <View style={styles.contentContainer}>
                             <Text>Awesome</Text>
