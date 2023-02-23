@@ -1,14 +1,16 @@
 import { StatusBar } from "expo-status-bar";
 import { useCallback, useMemo } from "react";
-import { StyleSheet, Text, TextInput, View } from "react-native";
+import { Image, StyleSheet, Text, TextInput, View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import BottomSheet from "@gorhom/bottom-sheet";
+import BottomSheet, { BottomSheetFlatList } from "@gorhom/bottom-sheet";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import CustomFooter from "../components/CustomFooter";
 import customBackdrop from "../components/customBackdrop";
 import Ionicons from '@expo/vector-icons/Ionicons'
 import PaySaveInv from "../components/bottomSheetComp/PaySaveInv";
 import YourActivity from "../components/bottomSheetComp/YourActivity";
+import Rewards from "../components/bottomSheetComp/Rewards";
+import Jump from "../components/bottomSheetComp/Jump";
 
 
 const EntryScreen = ({ navigation }) => {
@@ -47,6 +49,22 @@ const EntryScreen = ({ navigation }) => {
 
                             <PaySaveInv />
                             <YourActivity />
+
+                            <View style={styles.rewardContainer}>
+                                <Text style={{ fontSize: 17 }}>Rewards & Invites</Text>
+                            </View>
+                            <Rewards />
+
+                            <View style={styles.rewardContainer}>
+                                <Text style={{ fontSize: 17 }}>Jump</Text>
+                            </View>
+                            <Jump />
+
+                            <View style={{ flexDirection: 'row' }}>
+                                <Text style={{ fontSize: 12, color: '#77887e' }}>POWERED BY</Text>
+                                <Text style={{ fontSize: 14, color: '#77887e', marginLeft: '1%' }}>BHIM</Text>
+                                {/* <Image style={{ height: 10, width: 10 }} source={require('../../assets/bhim.png')} /> */}
+                            </View>
                         </View>
                     </BottomSheet>
                 </View>
@@ -80,5 +98,11 @@ const styles = StyleSheet.create({
         alignItems: "center",
         paddingHorizontal: 5,
         borderRadius: 20
+    },
+
+    rewardContainer: {
+        // borderWidth: 2,
+        width: "95%",
+        marginTop: "1%",
     }
 });

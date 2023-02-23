@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
 
     activityContainer: {
         width: 100,
-        margin: 10,
+        margin: 5,
         marginTop: "15%"
 
     },
