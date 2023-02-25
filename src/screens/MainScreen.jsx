@@ -28,46 +28,60 @@ const MainScreen = ({ navigation }) => {
     ];
 
     return (
-        <SafeAreaView>
-            <FAB
-                title="<"
-                placement="left"
-                size="small"
-                style={{ top: 50, width: "15%", zIndex: 99 }}
-                onPress={() => {
-                    navigation.replace("Entry");
-                }}
-            />
+        <SafeAreaView style={styles.container}>
+            <View style={styles.header}>
+                <FAB
+                    title="<"
+                    // placement="left"
+                    size="small"
+                    onPress={() => {
+                        navigation.replace("Entry");
+                    }}
+                    style={{ top: 10, position: "absolute", zIndex: 999, }}
+                />
+            </View>
 
-            <Swiper
-                data={data}
-                isStaticPill={true}
-                style={styles}
-
-            // renderItem={({ item }) => (item.component)}
-            />
+            <View style={styles.swiperContainer}>
+                <Swiper
+                    data={data}
+                    isStaticPill={true}
+                    style={styles}
+                // renderItem={({ item }) => <>{item.component}</>}
+                />
+            </View>
         </SafeAreaView>
     );
 };
 
-export default MainScreen;
-
-// const styles = StyleSheet.create({});
-const styles = {
-    pillContainer: {
-        borderWidth: 2,
-        marginTop: "5%",
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
     },
+
+    swiperContainer: {
+        flex: 1,
+        marginTop: 30,
+        borderWidth: 2,
+        zIndex: -1
+    },
+    swiper: {
+        flex: 1,
+    },
+
+
+    //swiper specific styling========================
     pillButton: {
-        backgroundColor: "white",
+        backgroundColor: 'white',
     },
     pillActive: {
-        backgroundColor: "yellow",
+        backgroundColor: 'yellow',
     },
     pillLabel: {
-        color: "gray",
+        color: 'gray',
     },
     activeLabel: {
-        color: "white",
+        color: 'white',
     },
-};
+});
+
+export default MainScreen;
