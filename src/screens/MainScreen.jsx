@@ -3,26 +3,40 @@ import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { FAB } from "react-native-elements";
-import FirstComponents from "../components/MainScreenComps/FirstComponents";
+import FirstScreen from "../components/MainScreenComps/FirstScreen";
 import SecondScreen from "../components/MainScreenComps/SecondScreen";
 import Swiper from "react-native-screens-swiper";
+import Ionicons from '@expo/vector-icons/Ionicons'
 
 const MainScreen = ({ navigation }) => {
     const data = [
         {
-            tabLabel: "Valid component in form of JSX element",
-            component: FirstComponents,
+            tabLabel: <Ionicons name='search' size={24} color="black" />,
+            component: FirstScreen,
         },
         {
-            tabLabel: "Valid component in form of React component",
+            tabLabel: <Ionicons name='alarm' size={24} color="black" />,
             component: SecondScreen,
             props: {}, // (optional) additional props
         },
         {
-            tabLabel: "Valid component in form of render function",
-            component: ({ index, ...props }) => {
-                return null;
-            },
+            tabLabel: <Ionicons name='body' size={24} color="black" />,
+            component: SecondScreen,
+            props: {}, // (optional) additional props
+        },
+        {
+            tabLabel: <Ionicons name='football' size={24} color="black" />,
+            component: SecondScreen,
+            props: {}, // (optional) additional props
+        },
+        {
+            tabLabel: <Ionicons name='clipboard' size={24} color="black" />,
+            component: SecondScreen,
+            props: {}, // (optional) additional props
+        },
+        {
+            tabLabel: <Ionicons name='moon' size={24} color="black" />,
+            component: SecondScreen,
             props: {}, // (optional) additional props
         },
     ];
@@ -44,7 +58,7 @@ const MainScreen = ({ navigation }) => {
             <View style={styles.swiperContainer}>
                 <Swiper
                     data={data}
-                    isStaticPill={true}
+                    isStaticPill={false}
                     style={styles}
                 // renderItem={({ item }) => <>{item.component}</>}
                 />
