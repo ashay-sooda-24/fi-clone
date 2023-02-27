@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
     },
     pillActive: {
-        backgroundColor: 'yellow',
+        backgroundColor: 'green',
     },
     pillLabel: {
         color: 'gray',
